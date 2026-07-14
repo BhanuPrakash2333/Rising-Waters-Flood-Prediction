@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>No Flood Risk</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Floods Prediction</h1>
+        <nav><a href="/">Home</a></nav>
+    </header>
+
+    <main class="alert-box safe">
+        <h2>✅ No Flood Risk Detected</h2>
+        <p>
+            Based on the entered weather data, our model predicts a
+            <strong>low probability of flooding</strong> in this region.
+        </p>
+        <p>
+            Conditions currently appear safe. Continue to monitor weather updates
+            regularly.
+        </p>
+        <a href="/predict">Check Another Location</a>
+    </main>
+</body>
+</html>

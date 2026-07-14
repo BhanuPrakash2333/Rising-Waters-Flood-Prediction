@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Floods Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Floods Prediction</h1>
+        <nav><a href="/">Home</a></nav>
+    </header>
+
+    <main>
+        <h2>Enter Weather Details</h2>
+        <form action="/predict" method="POST">
+            <label>Cloud Cover:</label>
+            <input type="number" step="any" name="cloud_cover" placeholder="Cloud Cover Percentage (%)" required><br><br>
+
+            <label>Annual Rain Fall:</label>
+            <input type="number" step="any" name="annual" placeholder="Enter Annual Rain Fall in mm" required><br><br>
+
+            <label>Jan-Feb Rainfall:</label>
+            <input type="number" step="any" name="jan_feb" placeholder="Jan-Feb Rainfall in mm" required><br><br>
+
+            <label>March-May Rainfall:</label>
+            <input type="number" step="any" name="mar_may" placeholder="March-May Rainfall in mm" required><br><br>
+
+            <label>June-September Rainfall:</label>
+            <input type="number" step="any" name="jun_sep" placeholder="June-September Rainfall in mm" required><br><br>
+
+            <button type="submit">Predict</button>
+        </form>
+    </main>
+</body>
+</html>
