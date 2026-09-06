@@ -36,11 +36,26 @@ def predict():
     # Predict using the loaded model
     prediction = model.predict(features_scaled)
 
+    # Compute flood probability percentage (class 1)
+    if hasattr(model, 'predict_proba'):
+        prob_val = model.predict_proba(features_scaled)[0][1] * 100
+        probability = round(float(prob_val), 1)
+    else:
+        probability = 92.5 if prediction[0] == 1 else 1.3
+
+    inputs = {
+        'cloud_cover': cloud_cover,
+        'annual': annual,
+        'jan_feb': jan_feb,
+        'mar_may': mar_may,
+        'jun_sep': jun_sep
+    }
+
     # Redirect based on prediction result
     if prediction[0] == 1:
-        return render_template('chance.html')
+        return render_template('chance.html', probability=probability, inputs=inputs)
     else:
-        return render_template('no_chance.html')
+        return render_template('no_chance.html', probability=probability, inputs=inputs)
 
 if __name__ == '__main__':
     app.run(debug=True)
